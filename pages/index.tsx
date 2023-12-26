@@ -32,6 +32,7 @@ export default function Home() {
       const response = await axios.post(walletUrl, {
         walletAddress: wallet.publicKey.toBase58(),
       });
+      console.log(response);
     };
     postWalletAddress();
 
