@@ -1,6 +1,7 @@
 import React, { FC, useState, useEffect, use } from "react";
 import PageHeading from "../components/PageHeading";
 import axios from "axios";
+import Link from "next/link";
 const wallet: FC = () => {
   const [walletAddress, setWalletAddress] = useState([]);
   const walletUrl = process.env.NEXT_PUBLIC_API;
@@ -10,7 +11,7 @@ const wallet: FC = () => {
       setWalletAddress(response.data);
     };
     getWalletAddress();
-  }, []);
+  });
 
   return (
     <div>
@@ -25,6 +26,14 @@ const wallet: FC = () => {
             </div>
           ))}
       </div>
+      <Link href="/">
+        <button
+          type="button"
+          className="inline-flex md:w-[40%] text-center justify-center items-center px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 border border-transparent rounded-md cursor-pointer hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          Mint a NFT Now 🚀
+        </button>
+      </Link>
     </div>
   );
 };
